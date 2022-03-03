@@ -3,4 +3,3 @@ import './styles.css'
 
 const nombre = "Sota"
 
-saludar(nombre)
