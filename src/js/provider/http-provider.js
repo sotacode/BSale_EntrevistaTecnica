@@ -1,15 +1,15 @@
 
 
 const obtenerProductos = async (search="") => {
-    let url = 'http://localhost:3000/api/productsFiltered/';
+    let url;
     let resp;
     console.log(search);
     try{
         if (search == "") {
-            url ='http://localhost:3000/api/products/';
+            url ='https://bsaletest-apirest.herokuapp.com/api/products/';
             resp = await fetch( url );
         }else{
-            url = 'http://localhost:3000/api/productsFiltered/';
+            url = 'https://bsaletest-apirest.herokuapp.com/api/productsFiltered/';
             resp = await fetch( url+search );
         }
 
@@ -19,8 +19,6 @@ const obtenerProductos = async (search="") => {
     }catch (err){
         throw err;
     }
-
-    
 }
 
 export {
