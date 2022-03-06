@@ -14,7 +14,7 @@ func main() {
 	mux.HandleFunc("/api/products/", sql.GetProducts).Methods("GET")
 	mux.HandleFunc("/api/categorys/", sql.GetCategorys).Methods("GET")
 
-	mux.HandleFunc("/api/productsFiltered/", nil).Methods("GET")
+	mux.HandleFunc("/api/productsFiltered/{filter}", sql.GetProductsFiltered).Methods("GET")
 
 	log.Fatal(http.ListenAndServe("localhost:3000", mux))
 }

@@ -1,42 +1,79 @@
-import '../../css/components.css'
-import webpacklogo from '../../assets/img/webpack-logo.png'
 import { obtenerProductos } from '../provider/http-provider';
+import { enterClick, search } from './search';
 
-const crearCard = (clase, idprod, nameProd, url, price, discount, category, idcat, nameCat) => {
-    const div = document.createElement('div');
-    div.className = clase;
-    const img = document.createElement('img');
-    img.src = url;
-    div.appendChild(img);
 
-    const title = document.createElement('h2');
-    title.textContent = nameProd;
-    div.appendChild(title);
+const crearCards = (products) => {
+    document.querySelector('#content').removeChild(document.getElementById('cargando'))
+    //recorrerArray(products);
+    products.map(product => {
+        const div = document.createElement('div');
+        div.className = 'card';
+        const img = document.createElement('img');
+        img.src = product.url_image;
+        div.appendChild(img);
+    
+        const title = document.createElement('h2');
+        title.textContent = product.name;
+        div.appendChild(title);
 
-    const content = document.querySelector('#content')
-    content.appendChild(div)
+        const prices = document.createElement('div');
+        prices.className = 'prices';
 
+        const price = document.createElement('p');
+        price.textContent = '$'+product.price
+        price.className = 'priceorigin'
+        prices.appendChild(price)
+
+        if (product.discount != 0){
+            const priceDiscounted = document.createElement('p');
+            priceDiscounted.className = 'priceDiscounted';
+            priceDiscounted.textContent = '$'+(product.price - (product.price * product.discount / 100));
+            prices.appendChild(priceDiscounted);
+            price.className += price.className + ' underlineAdd';
+
+            const discount = document.createElement('span');
+            discount.textContent = product.discount+'% dcto';
+            div.appendChild(discount);
+        }
+
+        div.appendChild(prices);
+
+        const buttons = document.createElement('div');
+        buttons.className='buttons';
+
+        const buttonBuy = document.createElement('button');
+        buttonBuy.className = 'buttonBuy';
+        buttonBuy.textContent = 'Comprar';
+        buttons.appendChild(buttonBuy)
+
+        const buttonAddToCart = document.createElement('button');
+        buttonAddToCart.className = 'buttonAddToCart';
+        buttonAddToCart.textContent = 'Agregar al carro';
+        buttons.appendChild(buttonAddToCart)
+
+        div.appendChild(buttons);
+        
+    
+        const content = document.querySelector('#content')
+        content.appendChild(div) 
+    });
 }
 
-export const saludar = ( nombre ) => {
-    /* console.log("Creando etiqueta h1")
+const init = () => {
 
-    const h1 = document.createElement('div');
-    h1.innerText = `Hola ${nombre}!!! Webpack dev server funcionando.`;
+    document.body.style.backgroundImage = "url(./assets/img/pattern.png)"
+    document.querySelector('#content').innerHTML = `<h1 id='cargando'> Cargando productos </h1>`
+    
+    document.querySelector("#inputSearch").onkeypress = function(event) {
+        enterClick(event);
+    }
+    
+    obtenerProductos(search.value.toLowerCase()).then( (resp) => {
+        crearCards(resp)
+    });
+}
 
-    document.body.append(h1);
-
-
-    const img = document.createElement('img');
-    img.src = webpacklogo;
-    document.body.append(img) */
-
-
-    /* const url1 = "https://www.licorea.com/images/magictoolbox_cache/feabb61ae2a71c1844359f7cbe8b5d82/1/4/1472/original/2901628488/absolut_4.5litros.jpg"
-    const url2 = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Appleton_Estate_V-X_Jamaica_Rum-with_glass.jpg/270px-Appleton_Estate_V-X_Jamaica_Rum-with_glass.jpg"
-    crearCard('card', 1, 'nombreProd1', url1, 25.3, 20, 2, 2, 'fuerte');
-    crearCard('card', 1, 'nombreProd2', url2, 25.3, 20, 2, 2, 'fuerte'); */
-
-    const info = obtenerProductos().then(console.log)
-
+export {
+    init,
+    crearCards
 }

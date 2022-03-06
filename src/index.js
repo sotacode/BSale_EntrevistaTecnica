@@ -1,7 +1,12 @@
-import { saludar } from './js/components/card';
-import './styles.css'
+import { init } from './js/components/card';
+import { buttonSearch } from './js/components/search';
+import './styles.css';
 
-const nombre = "Sota"
+const enterClick = (e)=>{
+    if (e.keyCode === 13 && !e.shiftKey) {
+        e.preventDefault();
+        buttonSearch.click();
+    }
+}
 
-document.body.style.backgroundImage = "url(./assets/img/pattern.png)"
-saludar(nombre)
+init();
