@@ -36,4 +36,4 @@ Ficheros del frontend:
 - **http-provider.js**: Fichero donde se encuentran las peticiones a la API REST.
 
 ## **Deploy**
-El backend se cargo en Heroku y el frontend en AWS.
+El backend se cargó en Heroku y el frontend en AWS.
