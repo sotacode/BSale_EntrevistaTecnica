@@ -1,6 +1,3 @@
-import { obtenerProductos } from '../provider/http-provider';
-import { enterClick, search } from './search';
-
 
 const crearCards = (products) => {
     document.querySelector('#content').removeChild(document.getElementById('cargando'))
@@ -59,21 +56,6 @@ const crearCards = (products) => {
     });
 }
 
-const init = () => {
-
-    document.body.style.backgroundImage = "url(./assets/img/pattern.png)"
-    document.querySelector('#content').innerHTML = `<h1 id='cargando'> Cargando productos </h1>`
-    
-    document.querySelector("#inputSearch").onkeypress = function(event) {
-        enterClick(event);
-    }
-    
-    obtenerProductos(search.value.toLowerCase()).then( (resp) => {
-        crearCards(resp)
-    });
-}
-
-export {
-    init,
+export{
     crearCards
 }

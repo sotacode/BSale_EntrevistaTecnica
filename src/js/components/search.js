@@ -2,7 +2,6 @@ import { obtenerProductos } from "../provider/http-provider";
 import { crearCards } from "./card";
 
 const search = document.querySelector('#inputSearch');
-const buttonSearch = document.querySelector('#buttonSearch');
 
 
 
@@ -14,16 +13,15 @@ const filtrar = ()=>{
     })
 }
 
-const enterClick = (e)=>{
+/* const enterClick = (e)=>{
     if (e.keyCode === 13 && !e.shiftKey) {
         e.preventDefault();
         buttonSearch.click();
     }
-}
+} */
 
-buttonSearch.addEventListener('click', filtrar)
+
 export {
-    search,
-    buttonSearch,
-    enterClick
+    filtrar,
+    search
 }
