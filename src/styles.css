@@ -361,5 +361,18 @@ footer{
         transition: all 200ms;
     }
 
+    #shoppingcart:hover img{
+        margin-top: 0px;
+        width: 35px;
+    }
+    
+    #shoppingcart:hover #countcart{
+        margin-top:34px;
+        font-size: 20px;
+        right: 1%;
+        width: 23px;
+        height: 23px;
+    }
+
 }
 
