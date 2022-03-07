@@ -10,10 +10,3 @@ type Product struct {
 }
 
 type Products []Product
-
-type Category struct {
-	Id   int    `json:"id"`
-	Name string `json:"name"`
-}
-
-type Categorys []Category

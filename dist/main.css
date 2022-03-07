@@ -1,23 +1,23 @@
 /* FUENTES */
 @font-face {
     font-family: 'TrebuchetMS';
-    src: url(../src/assets/fonts/TrebuchetMS.ttf);
+    src: url(870daf6c8bfef7c5d20c.ttf);
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: 'BebasNeue';
-    src: url(../src/assets/fonts/BebasNeue.otf);
+    src: url(7d8d1ee35def7f4e4c20.otf);
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: 'WebSymbolsRegular';
-    src: url(../src/assets/fonts/websymbols-regular-webfont.eot);
-    src: url(../src/assets/fonts/websymbols-regular-webfont.eot?#iefix) format('embedded-opentype'),
-        url(../src/assets/fonts/websymbols-regular-webfont.woff) format('woff'),
-        url(../src/assets/fonts/websymbols-regular-webfont.ttf) format('truetype'),
-        url(../src/assets/fonts/websymbols-regular-webfont.svg) format('svg');
+    src: url(c7d540acaac59939f36b.eot);
+    src: url(c7d540acaac59939f36b.eot?#iefix) format('embedded-opentype'),
+        url(353f403afa6575da6d2b.woff) format('woff'),
+        url(499dc72dd2cb7f154b78.ttf) format('truetype'),
+        url(f214d64d1128030a23b0.svg) format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -375,4 +375,5 @@ footer{
     }
 
 }
+
 
