@@ -37,3 +37,4 @@ Ficheros del frontend:
 
 ## **Deploy**
 El backend se cargó en Heroku y el frontend en AWS.
+LINK: [http://bsale.test.sota.s3-website-sa-east-1.amazonaws.com/](http://bsale.test.sota.s3-website-sa-east-1.amazonaws.com/)
