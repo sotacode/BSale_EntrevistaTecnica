@@ -22,7 +22,7 @@ const obtenerProductos = async (search="") => {
 
 const obtenerCategorias = async () => {
     try{
-        const url ='http://localhost:3000/api/categorys/';
+        const url ='https://bsaletest-apirest.herokuapp.com/api/categorys/';
         const resp = await fetch( url );
 
         if (! resp.ok) throw alert('No se pudo realizar la peticion');
