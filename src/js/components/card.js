@@ -1,6 +1,11 @@
+import { sortProducts } from "./filters";
 
+
+let divs;
 const crearCards = (products) => {
-    document.querySelector('#content').removeChild(document.getElementById('cargando'))
+    document.querySelector('#content').removeChild(document.getElementById('cargando'));
+    divs = [];
+
     //recorrerArray(products);
     products.map(product => {
         const div = document.createElement('div');
@@ -21,12 +26,16 @@ const crearCards = (products) => {
         price.className = 'priceorigin'
         prices.appendChild(price)
 
+        div.setAttribute('data-value',product.price)
+
         if (product.discount != 0){
             const priceDiscounted = document.createElement('p');
             priceDiscounted.className = 'priceDiscounted';
             priceDiscounted.textContent = '$'+(product.price - (product.price * product.discount / 100));
             prices.appendChild(priceDiscounted);
             price.className += price.className + ' underlineAdd';
+            
+            div.nodeValue = (product.price - (product.price * product.discount / 100)).toString()
 
             const discount = document.createElement('span');
             discount.textContent = product.discount+'% dcto';
@@ -49,13 +58,19 @@ const crearCards = (products) => {
         buttons.appendChild(buttonAddToCart)
 
         div.appendChild(buttons);
-        
-    
-        const content = document.querySelector('#content')
-        content.appendChild(div) 
+        divs.push([div,product.category])
     });
+
+    divs.sort(sortProducts)
+
+    const content = document.querySelector('#content')
+    divs.map( div => {
+        content.appendChild(div[0]);
+    } )
+    
 }
 
 export{
-    crearCards
+    crearCards,
+    divs
 }

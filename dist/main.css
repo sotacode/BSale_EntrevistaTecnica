@@ -159,12 +159,72 @@ header{
 }
 
 
-/* CONTENIDO */
+/* BARRA LATERAL */
+
+#fullbody{
+    display: flex;
+}
+
+#fullbody #lateral{
+    width: 230px;
+    margin-top: 20px;
+    margin-left: 3%;
+    margin-right: 20px;
+    min-height: 700px;
+    background-color: white;
+    box-shadow: 0px 0px 2px #ccc;
+}
+
+#fullbody #lateral h3{
+    margin-top: 30px;
+}
+#fullbody #lateral .custom-select{
+    width: 100%;
+    display: flex;
+    height: 30px;
+    justify-content: center;
+    align-self: center;
+    margin-top: 5px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+#fullbody #lateral .custom-select select{
+    width: 90%;
+}
+
+#fullbody #lateral .filtercategory div{
+    display: block;
+    width: 90%;
+    margin: 0px auto;
+    text-align: left;
+    margin: 5px;
+    padding-left: 10px;
+    text-transform: uppercase;
+}
+
+#fullbody #lateral .filtercategory div{
+    padding-left: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+#fullbody #lateral .filtercategory div input{
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+/* DESPLEGUE DE PRODUCTOS */
 
 #content{
     width: 80%;
     margin: 0px auto;
     margin-top: 20px;
+    margin-right: 3%;
     padding: 20px;
     min-height: 700px;
     box-shadow: 0px 1px 2px #ccc;
@@ -294,7 +354,7 @@ footer{
 */
 
 /* HEADER */
-@media (max-width:850px) {
+@media (max-width:1000px) {
     header{
         display: block;
         height: 100px;
